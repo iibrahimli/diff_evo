@@ -7,7 +7,7 @@ using std::endl;
 
 int main(){
 
-    cout << de::RANDOM_GAUSSIAN << endl;
+    cout << de::DEFAULT_INIT_MUT_PROB << endl;
 
     return 0;
 }

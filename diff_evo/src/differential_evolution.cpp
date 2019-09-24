@@ -4,43 +4,71 @@
     default parameters
 */
 template <typename arg_t, typename ret_t>
-differential_evolution::differential_evolution(de::cost<arg_t, ret_t>  target,
-                        de::mode                op_mode,
-                        unsigned int            nb_params);
+differential_evolution<arg_t, ret_t>(cost<arg_t, ret_t>  target,
+                                     mode                op_mode,
+                                     unsigned int        nb_params)
+    :   _target(target)
+{}
 
 
 /*
     user-supplied parameters
 */
-differential_evolution(de::cost<arg_t, ret_t>  target,
-                        de::mode                op_mode,
-                        unsigned int            nb_params,
-                        arg_t                   param_min,
-                        arg_t                   param_max,
-                        ret_t                   min_delta);
+template <typename arg_t, typename ret_t>
+differential_evolution<arg_t, ret_t>(cost<arg_t, ret_t>  target,
+                                     mode                op_mode,
+                                     unsigned int        nb_params,
+                                     arg_t               param_min,
+                                     arg_t               param_max,
+                                     ret_t               min_delta);
 
 
 /*
     initializes internal parameters
 */
-void init_internal_params();
+template <typename arg_t, typename ret_t>
+void differential_evolution<arg_t, ret_t>::
+init_internal_params()
+{
+    _min_delta = de::DEFAULT_MIN_DELTA;
+}
 
 
 /*
     setters
 */
 
-void set_param_min(arg_t param_min);
+template <typename arg_t, typename ret_t>
+void differential_evolution<arg_t, ret_t>::
+set_param_min(arg_t param_min)
+{
+
+}
 
 
-void set_param_max(arg_t param_max);
+template <typename arg_t, typename ret_t>
+void differential_evolution<arg_t, ret_t>::
+set_param_max(arg_t param_max)
+{
+
+}
 
 
-void set_min_delta(ret_t min_delta);
+template <typename arg_t, typename ret_t>
+void differential_evolution<arg_t, ret_t>::
+set_min_delta(ret_t min_delta)
+{
+
+}
 
 
 /*
     returns number of iterations run
 */
-unsigned int run(unsigned int   max_iters,
-                    bool           verbose = false);
+template <typename arg_t, typename ret_t>
+unsigned int differential_evolution<arg_t, ret_t>::
+run(unsigned int   max_iters,
+    bool           verbose = false)
+{
+
+}

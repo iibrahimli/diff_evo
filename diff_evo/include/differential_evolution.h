@@ -5,13 +5,14 @@
 
 namespace de {
 
-template <typename T>
+template <typename arg_t, typename ret_t>
 class differential_evolution;
 
 
 // functor, inherit and implement calc()
 template <typename arg_t, typename ret_t>
-struct cost {
+struct cost
+{
     virtual ret_t calc(unsigned int size, arg_t *vec);
 };
 
@@ -37,7 +38,8 @@ const float  DEFAULT_MUT_PROB_DECAY = 0.99;
     the class
 */
 template <typename arg_t, typename ret_t>
-class differential_evolution {
+class differential_evolution
+{
 private:
 
 // TODO implement param min/max vectors

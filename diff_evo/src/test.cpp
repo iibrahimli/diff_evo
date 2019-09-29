@@ -6,12 +6,13 @@ using std::cout;
 using std::endl;
 
 
-struct func : public de::cost<float, float> {
+class func : de::cost<float, float> {
 
-    float calc(unsigned int size, float *vec) override {
+    float calc(size_t size, float vec[]) override {
         // sum of vector components
         float sum = 0;
-        for(int i=0; i<size; ++i) sum += vec[i];
+        for(int i=0; i<size; ++i)
+            sum += vec[i];
         return sum;
     }
 

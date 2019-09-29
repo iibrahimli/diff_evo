@@ -11,9 +11,9 @@ class differential_evolution;
 
 // functor, inherit and implement calc()
 template <typename arg_t, typename ret_t>
-struct cost
+class cost
 {
-    virtual ret_t calc(unsigned int size, arg_t *vec);
+    virtual ret_t calc(size_t size, arg_t vec[]) = 0;
 };
 
 
@@ -34,9 +34,7 @@ const float  DEFAULT_MUT_PROB_DECAY = 0.99;
 }    // namespace de
 
 
-/*
-    the class
-*/
+
 template <typename arg_t, typename ret_t>
 class differential_evolution
 {

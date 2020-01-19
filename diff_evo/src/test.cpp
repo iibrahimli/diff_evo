@@ -1,29 +1,37 @@
 #include <iostream>
 #include <iomanip>
-#include "differential_evolution.h"
+#include "diff_evo.h"
 
 using std::cout;
 using std::endl;
 
 
-class func : de::cost<float, float> {
-
-    float calc(size_t size, float vec[]) override {
-        // sum of vector components
-        float sum = 0;
-        for(int i=0; i<size; ++i)
-            sum += vec[i];
-        return sum;
-    }
-
-};
+double obj(de::dvec x){
+    // Beale function
+    return pow((1.5 - x[0] + x[0]*x[1]), 2) + pow((2.25 - x[0] + x[0]*x[1]*x[1]), 2) + pow((2.625 - x[0] + x[0]*x[1]*x[1]*x[1]), 2);
+}
 
 
 int main(){
 
-    cout << "default initial mutation probability: " << de::DEFAULT_INIT_MUT_PROB << endl;
+    auto evo = de::diff_evo(
+        2,
+        {-4.5, -4.5},
+        {4.5, 4.5},
+        10000
+    );
 
-    auto evo = de::differential_evolution<float, float>(func(), de::MINIMIZE, 3);
+    auto sol = evo.optimize(
+        obj,
+        de::MINIMIZE,
+        1e-14
+    );
+
+    cout << "optimal solution:" << endl;
+    for(int i=0; i<sol.size(); ++i){
+        cout << sol[i] << endl;
+    }
+    cout << "score: " << obj(sol) << endl;
 
     return 0;
 }

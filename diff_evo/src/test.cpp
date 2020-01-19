@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include "diff_evo.h"
 
 using std::cout;

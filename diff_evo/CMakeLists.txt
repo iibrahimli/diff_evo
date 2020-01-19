@@ -6,10 +6,10 @@ add_library(diff_evo STATIC
             src/diff_evo.cpp)
 
 # test executable
-SET(TEST_EXE "de_test")
+# SET(TEST_EXE "de_test")
 
-ADD_EXECUTABLE("${TEST_EXE}"
-               src/test.cpp)
+# ADD_EXECUTABLE("${TEST_EXE}"
+            #    src/test.cpp)
 
-TARGET_LINK_LIBRARIES(${TEST_EXE}
-                      diff_evo)
+# TARGET_LINK_LIBRARIES(${TEST_EXE}
+                    #   diff_evo)

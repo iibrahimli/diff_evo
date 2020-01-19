@@ -4,7 +4,9 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/iibrahimli/diff_evo)
 ![GitHub last commit](https://img.shields.io/github/last-commit/iibrahimli/diff_evo)
 
-![Ackley](https://pablormier.github.io/assets/img/de/ackley.gif)
+<p align="center">
+  <img src="https://pablormier.github.io/assets/img/de/ackley.gif" alt="DE optimizing Ackley function"/>
+</p>
 
 `diff_evo` is a simple Differential Evolution C++ library with no external dependencies.
 

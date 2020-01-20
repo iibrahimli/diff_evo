@@ -78,7 +78,7 @@ using std::endl;
 
 
 // Beale function (R^2 -> R)
-double obj(de::dvec x){
+double beale(de::dvec x){
     return pow((1.5 - x[0] + x[0]*x[1]), 2)
            + pow((2.25 - x[0] + x[0]*x[1]*x[1]), 2)
            + pow((2.625 - x[0] + x[0]*x[1]*x[1]*x[1]), 2);

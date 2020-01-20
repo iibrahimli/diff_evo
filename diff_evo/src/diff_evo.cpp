@@ -12,18 +12,19 @@ de::diff_evo::diff_evo(size_t  num_params,
                        double  dither_max)
 {
 
-    // check parameter bounds vectors
+    // check parameter bounds vector sizes
     if(param_min.size() != num_params || param_max.size() != num_params)
-    {
         throw std::runtime_error("param_max or param_min do not have the right size");
+    
+    // check parameter bounds vector values
+    for(int i=0; i<num_params; ++i){
+        if(param_min[i] > param_max[i])
+            throw std::runtime_error("at least one element of param_min is greater than param_max");
     }
-    else{
-        for(int i=0; i<num_params; ++i){
-            if(param_min[i] > param_max[i]){
-                throw std::runtime_error("at least one element of param_min is greater than param_max");
-            }
-        }
-    }
+
+    // check population size
+    if(np < 4)
+        throw std::runtime_error("np is less than 4");
 
     this->num_params     = num_params;
     this->param_min      = param_min;

@@ -65,6 +65,8 @@ and for the member function `optimize`, you have to specify:
 | `double`                      | delta    | 1e-4           | Maximum difference in objective function to stop (tolerance) |
 | `size_t`                      | max_iter | 100000         | Maximum number of iterations                                 |
 
+`de::dvec` is `std::vector<double>`, typedef'd for convenience.
+
 ## Usage example
 
 ```cpp
